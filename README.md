@@ -10,6 +10,7 @@ Sometimes, malicious actors gain access to systems and attempt to download paylo
 - 📥 Download files or scripts from external servers
 - 🚀 Execute them immediately, bypassing traditional defenses
 - 📡 Establish communication with Command-and-Control (C2) servers
+<img width="978" height="661" alt="invoke" src="https://github.com/user-attachments/assets/ff39fc22-f31b-4bf4-8bff-570aad0660d0" />
 
 Detecting such behavior is critical to identifying and disrupting an ongoing attack! 🕵️‍♀️
 
