@@ -140,6 +140,7 @@ Follow the **NIST 800-161: Incident Response Lifecycle**:
    - Enhance cybersecurity training programs 📚.
 3. Finalize reporting and close the case:
    - Mark incident as **True Positive** ✅. 
+<img width="846" height="789" alt="report" src="https://github.com/user-attachments/assets/072d0809-3125-4f7b-be7f-140d763c5072" />
 
 ---
 
