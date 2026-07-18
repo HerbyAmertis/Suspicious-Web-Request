@@ -52,7 +52,7 @@ DeviceProcessEvents
 
 5. Verify payload detection. ✅
 ```kql
-   let TargetHostname = "windows-target-1"; // Replace with the name of your VM as it shows up in the logs
+   let TargetHostname = "windows-target-"; // Replace with the name of your VM as it shows up in the logs
 let ScriptNames = dynamic(["eicar.ps1", "exfiltratedata.ps1", "portscan.ps1", "pwncrypt.ps1"]); // Add the name of the scripts that were downloaded
 DeviceProcessEvents
 | where DeviceName == TargetHostname // Comment this line out for MORE results
@@ -63,7 +63,8 @@ DeviceProcessEvents
 | summarize Count = count() by AccountName, DeviceName, FileName, ProcessCommandLine
 ```
 
-![Screenshot 2025-01-07 144444](https://github.com/user-attachments/assets/9520d3df-b646-4ce6-a72e-52e1eaedc3f4)
+<img width="1200" height="336" alt="powershell5" src="https://github.com/user-attachments/assets/79a64ce0-df2d-4835-85aa-dc563d35574d" />
+
 
 
 #### 2️⃣ **Create Alert Rule in Microsoft Sentinel**
@@ -74,7 +75,7 @@ DeviceProcessEvents
    - **Description**: Detects PowerShell downloading remote files 📥.
    - **KQL Query**:
      ```kql
-     let TargetDevice = "windows-target-1";
+     let TargetDevice = "windows-target-";
      DeviceProcessEvents
      | where DeviceName == TargetDevice
      | where FileName == "powershell.exe"
@@ -90,7 +91,8 @@ DeviceProcessEvents
 4. Enable **Mitre ATT&CK Framework Categories** (Use ChatGPT to assist! 🤖).
 5. Save and activate the rule. 🎉
 
-![Screenshot 2025-01-07 131945](https://github.com/user-attachments/assets/2cb640e9-9471-4439-a545-e3395bd2fd16)
+<img width="888" height="738" alt="powershell1" src="https://github.com/user-attachments/assets/48e04e56-5b51-43dd-889e-5bd5f9c77a56" />
+
 
 
 ---
@@ -106,7 +108,8 @@ Follow the **NIST 800-161: Incident Response Lifecycle**:
 1. **Validate Incident**:
    - Assign it to yourself and set the status to **Active** ✅.
 
-![Screenshot 2025-01-07 135609](https://github.com/user-attachments/assets/f1c4ba25-0a90-4924-86b9-1e87f25031f6)
+<img width="1144" height="719" alt="powershell2" src="https://github.com/user-attachments/assets/663ba89c-53db-41ab-b71e-1f2ede0d55bb" />
+
 
 2. **Investigate**:
    - Review logs and entity mappings 🗒️.
@@ -118,7 +121,7 @@ Follow the **NIST 800-161: Incident Response Lifecycle**:
      - `portscan.ps1`
      - `pwncrypt.ps1`
      - `eicar.ps1`
-     - `exfiltratedata.ps1`
+   
 3. Gather evidence:
    - Scripts downloaded and executed 🧪.
    - User admitted to downloading free software during the events.
@@ -135,23 +138,25 @@ Follow the **NIST 800-161: Incident Response Lifecycle**:
 
 ### 4️⃣ **Post-Incident Activities** 📝
 1. Document findings and lessons learned 🖊️.
-   - Scripts executed: `pwncrypt.ps1` , `exfiltratedata.ps1` , `portscan.ps1` , `eicar.ps1` .
+   - Scripts executed: `pwncrypt.ps1` , `portscan.ps1` , `eicar.ps1` .
    - Account involved: `system-user`.
 2. Update policies:
    - Restrict PowerShell usage 🚫.
    - Enhance cybersecurity training programs 📚.
 3. Finalize reporting and close the case:
    - Mark incident as **True Positive** ✅. 
-<img width="846" height="789" alt="report" src="https://github.com/user-attachments/assets/072d0809-3125-4f7b-be7f-140d763c5072" />
+<img width="670" height="623" alt="powershell3" src="https://github.com/user-attachments/assets/c9774630-ca54-449f-9dab-93716eb66798" />
+<img width="594" height="613" alt="powershell4" src="https://github.com/user-attachments/assets/1ee5cd40-7038-4a9f-946a-439d6c56426a" />
+
 
 ---
 
 ## 🎯 **Incident Summary**
 | **Metric**                     | **Value**                        |
 |---------------------------------|-----------------------------------|
-| **Affected Device**            | `windows-target-1`               |
-| **Suspicious Commands**        | 4                                |
-| **Scripts Downloaded**         | `portscan.ps1`, `pwncrypt.ps1`, `eicar.ps1`, `exfiltratedata.ps1`   |
+| **Affected Device**            | `windows-target-`               |
+| **Suspicious Commands**        | 3                                |
+| **Scripts Downloaded**         | `portscan.ps1`, `pwncrypt.ps1`, `eicar.ps1`   |
 | **Incident Status**            | Resolved                         |
 
 ---
