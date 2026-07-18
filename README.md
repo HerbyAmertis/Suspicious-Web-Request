@@ -41,13 +41,14 @@ DeviceProcessEvents
 3. Locate suspicious activity, e.g., `powershell.exe` executing `Invoke-WebRequest`.
 4. Refine query for target device:
    ```kql
-   let TargetDevice = "windows-target-1";
+   let TargetDevice = "windows-target-";
    DeviceProcessEvents
    | where DeviceName == TargetDevice
    | where FileName == "powershell.exe"
    | where ProcessCommandLine contains "Invoke-WebRequest"
    ```
-![Screenshot 2025-01-07 105629](https://github.com/user-attachments/assets/418f503e-ebab-4cb4-9541-8c1c30ccc56a)
+<img width="1184" height="516" alt="powershell" src="https://github.com/user-attachments/assets/1884115d-2bd1-4b72-afa8-39759e507e09" />
+
 
 5. Verify payload detection. ✅
 ```kql
